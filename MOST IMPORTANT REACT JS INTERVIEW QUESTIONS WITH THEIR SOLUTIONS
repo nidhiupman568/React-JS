@@ -1,0 +1,409 @@
+
+**1. What is ReactJS?**
+ReactJS is a JavaScript library used to build reusable components specifically for the view layer in MVC architecture. It operates efficiently by using a virtual DOM and is written in JSX, functioning on the client side.
+
+---
+
+**2. Explain the MVC architecture.**
+The Model-View-Controller (MVC) framework is a design pattern that divides an application into three main components: Model (data logic), View (UI), and Controller (input control). This separation ensures a clean modular structure.
+
+---
+
+**3. What are the main building blocks of React?**
+The five main building blocks are:
+
+- **Components**: Reusable blocks of code returning HTML.
+- **JSX**: A syntax extension allowing HTML within JavaScript.
+- **Props and State**: Props are function parameters, and state is similar to component-specific variables.
+- **Context**: Passes data through the component hierarchy.
+- **Virtual DOM**: A lightweight, faster representation of the real DOM.
+
+---
+
+**4. Explain props and state in React with differences.**
+Props are used to pass data between components, are immutable, and are read-only. State is local to a component, mutable, and both readable and writable. Props can be used with both functional and class components, whereas state is traditionally used with class components.
+
+---
+
+**5. What is the virtual DOM in React?**
+The virtual DOM is a lightweight copy of the real DOM that React uses to optimize rendering. It updates the virtual DOM first and then syncs changes to the real DOM, making the process faster and more efficient.
+
+---
+
+**6. What is JSX?**
+JSX is a syntax extension for JavaScript that allows writing HTML elements within React. JSX expressions are wrapped in curly braces `{}` and are eventually transpiled to regular JavaScript by tools like Babel.
+
+---
+
+**7. What are components and their types in React?**
+Components are the building blocks of a React application. There are two types:
+
+- **Functional Components**: Simple JavaScript functions that accept props and return HTML.
+- **Class Components**: More complex, can manage state and lifecycle methods, and communicate with other components.
+
+---
+
+**8. How do browsers read JSX?**
+Browsers can't directly read JSX. Instead, a transpiler like Babel converts JSX into JavaScript, which browsers can then execute.
+
+---
+
+**9. How do you create a React application and print "Hello World"?**
+Install Node, then use:
+
+```bash
+npx create-react-app my-app
+cd my-app
+```
+
+Edit `App.js`:
+
+```javascript
+import React from "react";
+import "./App.css";
+
+function App() {
+  return <div className="App">Hello World!</div>;
+}
+
+export default App;
+```
+
+Run the app:
+
+```bash
+npm start
+```
+
+---
+
+**10. How to create an event in React?**
+Define an event handler and attach it to an element:
+
+```javascript
+function handleEvent(e) {
+  e.preventDefault();
+  // Event handling logic
+}
+
+return <button onClick={handleEvent}>Click me</button>;
+```
+
+---
+
+**11. How to create a list in React?**
+Use the `map` function to generate list items:
+
+```javascript
+const numbers = [1, 2, 3, 4, 5];
+const listItems = numbers.map(number => <li key={number}>{number}</li>);
+
+ReactDOM.render(<ul>{listItems}</ul>, document.getElementById("root"));
+```
+
+---
+
+**12. What is a key in React?**
+A key is a unique identifier for elements in lists. It helps React identify which items have changed, are added, or are removed.
+
+---
+
+**13. How to write a comment in React?**
+- **Single-line**: `// Comment`
+- **Multi-line**: `/* Comment */`
+
+---
+
+**14. Explain the difference between React and Angular.**
+
+| Field            | React.js                              | Angular                                    |
+|------------------|---------------------------------------|--------------------------------------------|
+| Usage            | JavaScript library                    | Framework                                  |
+| Architecture     | MVC                                   | MVVM                                       |
+| Scalability      | Highly scalable                       | Less scalable                              |
+| Data Binding     | Uni-directional                       | Bi-directional                             |
+| DOM              | Virtual DOM                           | Real DOM                                   |
+
+---
+
+**15. What is the use of the render method in React?**
+The `render()` method outputs HTML to the web page. It reads props and state, returning JSX to the root component.
+
+---
+
+**16. What is state in React?**
+State is an object that holds data specific to a component and can change over the component's lifecycle, affecting how the component renders and behaves.
+
+---
+
+**17. Explain props in React.**
+Props are inputs to components, passed in as attributes in JSX. They are accessible via `this.props` in class components.
+
+---
+
+**18. What is a higher-order component (HOC) in React?**
+A higher-order component is a function that takes a component and returns a new, enhanced component. HOCs allow reuse of component logic.
+
+---
+
+**19. What are the differences between functional and class components in React?**
+
+| Functional Components                | Class Components                           |
+|--------------------------------------|--------------------------------------------|
+| JavaScript functions                 | Extend from `React.Component`              |
+| No render method                     | Requires `render()` method                 |
+| Stateless                            | Stateful                                   |
+| No lifecycle methods                 | Lifecycle methods available                |
+| No constructor                       | Requires constructor for state management  |
+
+---
+
+**20. What is one-way data binding in React?**
+One-way data binding means data flows in a single direction, from parent to child components. This makes the data flow predictable and easier to debug.
+
+---
+
+### React Intermediate Interview Questions
+
+**21. What is conditional rendering in React?**
+Conditional rendering means rendering different components or elements based on certain conditions. For example:
+
+```javascript
+{isLoggedIn ? <LoggedIn /> : <LoggedOut />}
+```
+
+---
+
+**22. What is React Router?**
+React Router is a library for routing in React applications, allowing navigation between views, URL changes, and UI synchronization with the URL.
+
+---
+
+**23. What are the components of React Router?**
+- **Router (BrowserRouter)**: Parent component for routing.
+- **Switch**: Renders the first route that matches the current location.
+- **Route**: Renders a component based on the URL path.
+- **Link**: Creates navigational links.
+
+---
+
+**24. Explain the lifecycle methods of components.**
+A component's lifecycle includes:
+
+- **Initialization**: Setting up props and state.
+- **Mounting**: Inserting the component into the DOM.
+- **Updating**: Re-rendering due to state or prop changes.
+- **Unmounting**: Removing the component from the DOM.
+
+---
+
+**25. What are the methods used in the mounting phase of components?**
+- **componentWillMount()**: Invoked before mounting.
+- **componentDidMount()**: Invoked after mounting.
+
+---
+
+### 26. What is `this.setState` function in React?
+
+The `setState()` method is used to update the state object in a React component. It ensures the component is re-rendered after the state change. You can update only a subset of the state attributes or use multiple `setState()` calls to update each attribute independently.
+
+### 27. What is the use of `ref` in React?
+
+Refs in React are functions that allow access to DOM elements or React elements created by the developer. They are useful for manipulating child components without using props. Refs also support callbacks. The syntax to use a ref is:
+
+```javascript
+const node = this.myCallRef.current;
+```
+
+### 28. What are hooks in React?
+
+Hooks, introduced in React 16.8, allow developers to use state and other React features without writing classes. Hooks provide direct access to React concepts such as props, state, context, refs, and lifecycle methods without violating existing React principles.
+
+### 29. Explain the `useState` hook in React.
+
+The `useState` hook is widely used in React for state management within functional components. It allows declaring state variables inside a function, with only one state variable per `useState` call. Import it using:
+
+```javascript
+import { useState } from 'react';
+```
+
+### 30. Explain the `useEffect` hook in React.
+
+The `useEffect` hook replaces lifecycle methods like `componentDidUpdate` in class-based components. It accepts two arguments: a function and an optional dependency array. The dependency array controls when the effect runs after rendering.
+
+```javascript
+useEffect(() => {
+  // effect code
+}, [dependency]);
+```
+
+### 31. What are React Fragments?
+
+React Fragments, introduced in React 16.2, allow grouping multiple elements without adding extra nodes to the DOM. Instead of wrapping elements in a `div`, you can use:
+
+```jsx
+<React.Fragment>
+  <h2>Child-1</h2>
+  <p>Child-2</p>
+</React.Fragment>
+```
+
+### 32. What is the React Developer Tools?
+
+The React Developer Tools is a Chrome DevTools extension for debugging React applications. It allows inspection and editing of the React component tree, including props, state, hooks, and more.
+
+### 33. How to use styles in ReactJS?
+
+CSS modules enable local scoping of CSS. Create a CSS module file (e.g., `App.module.css`) and import it in a component using:
+
+```javascript
+import styles from './App.module.css';
+```
+
+### 34. Explain styled components in React.
+
+Styled-components allow writing CSS within JavaScript for modular and reusable styles in React. It removes the need for global CSS files. Install it with:
+
+```bash
+npm i styled-components
+```
+
+Custom styles example:
+
+```javascript
+import styled from 'styled-components';
+
+const Button = styled.div`
+  width: 100px;
+  cursor: pointer;
+  text-decoration: none;
+`;
+
+export default Button;
+```
+
+### 35. What is prop drilling and its disadvantages?
+
+Prop drilling occurs when data is passed through multiple levels of components unnecessarily. It can complicate state management and make the code harder to maintain.
+
+### 36. What are custom hooks in React?
+
+Custom hooks are JavaScript functions starting with "use" that can call other hooks. They promote code reuse by encapsulating logic that can be shared across multiple components.
+
+### 37. How to optimize React code?
+
+To optimize React code:
+
+- Bind functions in constructors
+- Avoid inline attributes
+- Use React fragments instead of extra tags
+- Implement lazy loading
+
+### 38. What is the difference between `useRef` and `createRef` in React?
+
+| `useRef` | `createRef` |
+|----------|--------------|
+| A hook | A function |
+| Uses the same ref throughout | Creates a new ref each time |
+| Persists value between re-renders | Creates a new ref for every re-render |
+| Returns a mutable ref object | Returns a read-only ref object |
+| Used in functional components | Used in class components |
+
+### 39. What is react-redux?
+
+React-redux is a state management tool that simplifies passing states between components. It centralizes state management and reduces complexity in large applications.
+
+### 40. What are the benefits of using react-redux?
+
+Benefits include:
+
+- Centralized state management
+- Optimized performance through reduced re-renders
+- Easier debugging
+- Persistent state management
+
+### 41. Explain the core components of react-redux.
+
+Core components include:
+
+- Redux Store: Holds application state
+- Action Creators: Functions returning action objects
+- Actions: Objects with type and payload properties
+- Reducers: Pure functions updating the state in response to actions
+
+### 42. How can we combine multiple reducers in React?
+
+Combine multiple reducers using `combineReducers` from Redux:
+
+```javascript
+import { combineReducers } from "redux";
+
+const rootReducer = combineReducers({
+  books: BooksReducer,
+  activeBook: ActiveBook
+});
+```
+
+### 43. What is the Context API?
+
+The Context API allows passing global variables throughout a React application without using props. It creates a context using `React.createContext()` and includes `Provider` and `Consumer` components.
+
+### 44. Explain provider and consumer in Context API.
+
+The `Provider` component supplies context to the application, while the `Consumer` component consumes the nearest context value provided. The `Provider` passes state to its children, and the `Consumer` accesses this state.
+
+### 45. Explain CORS in React.
+
+Cross-Origin Resource Sharing (CORS) allows making requests to servers on different domains. In React, it can be configured using `axios` or `fetch`.
+
+### 46. What is axios and how to use it in React?
+
+Axios is a library for making asynchronous HTTP requests to REST endpoints. It supports the Promise API and is useful for CRUD operations. Install it with:
+
+```bash
+npm i axios
+```
+
+### 47. Write a program to create a counter with increment and decrement.
+
+```javascript
+import React, { useState } from "react";
+
+const App = () => {
+  const [counter, setCounter] = useState(0);
+
+  const handleClick1 = () => setCounter(counter + 1);
+  const handleClick2 = () => setCounter(counter - 1);
+
+  return (
+    <div>
+      <div>{counter}</div>
+      <div className="buttons">
+        <button onClick={handleClick1}>Increment</button>
+        <button onClick={handleClick2}>Decrement</button>
+      </div>
+    </div>
+  );
+};
+
+export default App;
+```
+
+### 48. Explain why and how to update the state of components using a callback.
+
+Updating state with a callback ensures that the new state is based on the previous state, preventing bugs. Use the syntax:
+
+```javascript
+this.setState((st) => ({
+  stateName1: state1UpdatedValue,
+  stateName2: state2UpdatedValue
+}));
+```
+
+### 49. What is React-Material UI?
+
+React Material UI is a framework that provides prebuilt components for React applications, enhancing the developer experience with quality designs and easy customization. It was developed by Google and supports JavaScript frameworks like Angular.js and Vue.js.
+
+### 50. What is flux architecture in redux?
+
+Flux is an architecture used by Facebook with React to enforce unidirectional data flow. It complements React by structuring the flow of data in applications.
